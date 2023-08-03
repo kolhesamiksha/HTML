@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body style="background-color:white">
+
+    <!-- Header -->
+    <header>
+        <br>
+        <h2 style="text-align:center; color:bisque"> Chikitsa Hospital Management System </h2>
+        <br>   
+    </header>
+    <!-- End of Header -->
+    <!-- Left Sidebar -->
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        &nbsp;<br><h2 style="text-align:center">Welcome Admin</h2><br><br>
+        <div style="align-content:center">
+        <h4 style="text-align: center; color: bisque">
+        @Html.ActionLink("Dashboard", "About")</h4>
+        <h4 style="text-align: center; color: bisque">
+        @Html.ActionLink("Doctors & Staff Details", "Contact")</h4>
+        <h4 style="text-align: center; color: bisque">
+        @Html.ActionLink("Patients", "Enquiry")</h4>
+            <h4 style="text-align: center; color: bisque">
+        @Html.ActionLink("Departments", "Home")</h4>
+            <h4 style="text-align: center; color: bisque">
+        @Html.ActionLink("Equipments", "Purchase")</h4>
+        <h4 style="text-align: center; color: bisque">
+            @Html.ActionLink("Logout", "Home");</h4>
+        </div>
+    </nav>
+    <!-- End of Left Sidebar -->
+    <!-- Content Body -->
+    <div class="content">
+        @RenderBody()
+    </div>
+    <!-- End of Content Body -->
+    <!-- Footer -->
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Chikitsa Private Limited </p>
+    </footer>
+
+    <!-- Style -->
+    <style>
+        header {
+            height: 80px;
+            width: 100%;
+            background-color: mediumslateblue;
+        }
+
+        nav {
+            float: left;
+            width: 150px;
+            height: 600px;
+            background-color: mediumseagreen;
+        }
+
+        .content {
+            background-color: white;
+            padding: 20px;
+        }
+
+        footer {
+            background-color: mediumslateblue;
+            width: 100%;
+            height: 50px;
+            float: right;
+            text-align: center;
+        }
+    </style>
+</body>
+</html>
