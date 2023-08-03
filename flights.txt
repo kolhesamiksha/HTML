@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Airline Management System - Flight Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+    .flight-details-container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+    }
+    .seat-map {
+      display: grid;
+      grid-template-columns: repeat(6, 50px);
+      grid-gap: 10px;
+      margin-top: 30px;
+      align-items: center;
+      justify-content: center;
+    }
+    .seat {
+      width: 50px;
+      height: 50px;
+      border: 1px solid #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .seat.available {
+      background-color: #a6e39f;
+    }
+    .seat.booked {
+      background-color: #f28b82;
+      color: #fff;
+    }
+    h1 {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="flight-details-container">
+    <h1>Flight Seating Arrangement</h1>
+    <div class="seat-map">
+      <!-- Replace 'N' with the total number of rows in your plane -->
+      <!-- Replace '6' with the total number of seats in each row in your plane -->
+      <!-- Use a loop to generate the seats dynamically based on your actual seating arrangement -->
+      <!-- For example, this example generates a 5x6 seat grid -->
+      <!-- 'A' to 'F' are the seat labels for each row -->
+      <!-- The class 'available' or 'booked' will be added dynamically based on the seat status -->
+      <!-- Modify this section according to your actual seating arrangement -->
+      <!-- Use JavaScript to handle the seat booking process -->
+      <div class="seat available">1A</div>
+      <div class="seat available">1B</div>
+      <div class="seat booked">1C</div>
+      <div class="seat available">1D</div>
+      <div class="seat booked">1E</div>
+      <div class="seat available">1F</div>
+      <div class="seat available">2A</div>
+      <div class="seat available">2B</div>
+      <div class="seat available">2C</div>
+      <div class="seat booked">2D</div>
+      <div class="seat available">2E</div>
+      <div class="seat available">2F</div>
+      
+    </div>
+  </div>
+</body>
+</html>
