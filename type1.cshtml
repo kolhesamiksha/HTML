@@ -1,0 +1,54 @@
+﻿
+
+@using System.Data;
+@using System.Configuration;
+@using System.Data.SqlClient;
+@model System.Data.DataTable
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+    <style>
+        body {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+
+    <table class="table">
+        <tr>
+
+            <th>ptype</th>
+            <th>Start_Location</th>
+            <th> Destination</th>
+            <th>Arrival_Time</th>
+            <th> Departure_Time</th>
+
+            <th></th>
+            <th></th>
+        </tr>
+
+        @foreach (DataRow dt in Model.Rows)
+        {
+
+            <tr>
+                <td>@dt["ptype"]</td>
+                <td>  @dt["Start_Location"]</td>
+                <td>  @dt["Destination"]</td>
+                <td>@dt["Arrival_Time"]</td>
+                <td>@dt["Departure_Time"]</td>
+
+
+            </tr>
+        }
+
+    </table>
+</body>
+</html>
+
+
