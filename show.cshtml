@@ -1,0 +1,56 @@
+﻿@using System.Data;
+@using System.Configuration;
+@using System.Data.SqlClient;
+@model System.Data.DataTable
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+    body
+    {
+    background-color:lightgray;
+    }
+        </style>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+
+            <th> Booking_id</th>
+            <th>Booking_Pass_id</th>
+            <th>Booking_date </th>
+            <th>Booking_Type</th>
+
+        </tr>
+
+        @foreach (DataRow dt in Model.Rows)
+        {
+
+            <tr>
+                <td>@dt["Booking_id"]</td>
+                <td>  @dt["Booking_Pass_id"]</td>
+                <td>  @dt["Booking_date"]</td>
+                <td>@dt["Booking_Type"]</td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = dt["Booking_id"] }) |
+                    @Html.ActionLink("Details", "Details", new { id = dt["Booking_id"] }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = dt["Booking_id"] })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <div>
+        @Html.ActionLink("Back to List", "Index", "Home")
+    </div>
+</body>
+</html>
