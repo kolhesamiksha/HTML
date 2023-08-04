@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+
+}
+
+<h2><em>Welcome Admin </em></h2>
+
+
+<html>
+<head>
+    <title></title>
+
+    <style>
+        .t1 {
+            float: left;
+            width: 15%;
+            position: fixed;
+            height: 100%;
+            background-color:lightpink;
+            
+        }
+
+        ul {
+
+           color:darkgray;
+        }
+        .nav navbar-nav {
+            background-color: lighblue;
+        }
+
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>Dashboard</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+<body style="background-color : lightgray">
+    <div class="t1">
+      @* <div class="container">*@
+            @*<div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("AIRLINE", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>*@
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Flights_Available", "IndexProc", "First")</li>
+                    <li>@Html.ActionLink("Booking", "show", "Second")
+<hr />
+                    <li>@Html.ActionLink("Routes", "show_route", "Route")</li>
+                    <li>@Html.ActionLink("Passenger_Details", "Pshow", "Third")</li>
+                    <li>@Html.ActionLink("Worklist1", "Filter2", "worklist")</li>
+                    <li>@Html.ActionLink("Worklist2", "type", "type")</li>
+                    <li>@Html.ActionLink("Avaliable_Seats", "Seat", "Seats")</li>
+                 
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+   
+
+    
+</body>
+</html>
