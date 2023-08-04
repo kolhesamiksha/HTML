@@ -1,0 +1,67 @@
+﻿@using System.Data;
+@using System.Configuration;
+@using System.Data.SqlClient;
+@model System.Data.DataTable
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        body {
+            background-color: lightgray;
+        }
+
+       
+       
+    </style>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+
+            <th>Flight_id</th>
+            <th>Start_Location</th>
+            <th> Destination</th>
+            <th>Arrival_Time</th>
+            <th> Departure_Time</th>
+            <th> ticket_price</th>
+            <th> class</th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        @foreach (DataRow dt in Model.Rows)
+        {
+
+            <tr>
+                <td>@dt["Flight_id"]</td>
+                <td>  @dt["Start_Location"]</td>
+                <td>  @dt["Destination"]</td>
+                <td>@dt["Arrival_Time"]</td>
+                <td>@dt["Departure_Time"]</td>
+                <td>  @dt["ticket_price"]</td>
+                <td>  @dt["class"]</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = dt["Flight_id"] }) |
+                    @Html.ActionLink("Details", "Details", new { id = dt["Flight_id"] }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = dt["Flight_id"] })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>
+<div>
+    @Html.ActionLink("Back to List", "Index", "Home")
+</div>
