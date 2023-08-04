@@ -1,0 +1,504 @@
+create database AirlineDB;
+
+create table Passengers_Details
+(
+ P_id int primary key ,
+ P_name varchar(255) not null,
+ P_add varchar(255),
+ P_email varchar(255) not null,
+ P_mobile varchar(255) ,
+ P_username varchar(255) ,
+ P_pass varchar(255),
+);
+
+select * from Passengers_Details;
+
+insert into Passengers_Details( P_id ,P_name ,P_add,P_email, P_mobile ,P_username ,P_pass) values(104,'Rohit','Jeevan Villa','rs9296@gmail.com',8345679031,'rohit123','Sipl@1234');
+insert into Passengers_Details( P_id ,P_name ,P_add,P_email, P_mobile ,P_username ,P_pass) values(105,'Vaishu','Charholi','vdd9296@gmail.com',4567464531,'vaishu123','vaish@1234');
+insert into Passengers_Details( P_id ,P_name ,P_add,P_email, P_mobile ,P_username ,P_pass) values(106,'Ram','Sona Nagar','ram246@gmail.com',6734567903,'ram1234','Ram@123');
+insert into Passengers_Details( P_id ,P_name ,P_add,P_email, P_mobile ,P_username ,P_pass) values(107,'Rupali','Shivaji Nagar','rUPALI@gmail.com',2345670031,'rups123','rup@1234');
+insert into Passengers_Details( P_id ,P_name ,P_add,P_email, P_mobile ,P_username ,P_pass) values(108,'Shruti','Datta Nivas','shruti22@gmail.com',2389079031,'shruti123','shruti22');
+
+create table Routes
+(
+ Route_id int primary key ,
+ Origin varchar(255) not null,
+ Destination varchar(255),
+ Arrival_Time VARCHAR(255) ,
+ Departure_Time VARCHAR(255),
+);
+
+select * from routes;
+
+insert into Routes( Route_id , Origin,Destination,Arrival_Time ,Departure_Time) values(201,'India','U.S','10:00 AM','8:00 PM');
+insert into Routes( Route_id , Origin,Destination,Arrival_Time ,Departure_Time) values(203,'India','Singapore','8:00 AM','1:00 PM');
+
+insert into Routes( Route_id , Origin,Destination,Arrival_Time ,Departure_Time) values(204,'Singapore','Chennai','11:30 AM','6:00 PM');
+insert into Routes( Route_id , Origin,Destination,Arrival_Time ,Departure_Time) values(205,'Kolkata','Bengaluru','10:00 AM','8:00 PM');
+
+insert into Routes( Route_id , Origin,Destination,Arrival_Time ,Departure_Time) values(206,'Pune','Delhi','10:00 AM','8:00 PM');
+
+drop table route;
+
+create table Plane(
+Plane_id int ,
+ Plane_Type varchar(255) not null,
+ Capacity varchar(255),
+);
+ 
+select * from Plane;
+ 
+insert into Plane(Plane_id ,Plane_Type,Capacity ) values(201,'Passenger','50');
+ 
+insert into Plane(Plane_id ,Plane_Type,Capacity ) values(202,'Passenger','150');
+ 
+ 
+insert into Plane(Plane_id ,Plane_Type,Capacity ) values(204,'Cargo','100'); 
+insert into Plane(Plane_id ,Plane_Type,Capacity ) values(205,'Military','50');
+insert into Plane(Plane_id ,Plane_Type,Capacity ) values(201,'Cargo','200');
+
+Create table Booking
+(  
+   
+   Booking_id int,
+    Booking_Pass_id int,
+   Booking_date varchar(255),
+   Booking_Type VARCHAR(255) ,
+  ) ;
+
+   insert into Booking values(301,104,'2023-01-27','VIP');
+   insert into Booking (Booking_id,Booking_Pass_id,Booking_date,Booking_Type)values(302,105,'2023-03-27','General');
+   insert into Booking (Booking_id,Booking_Pass_id,Booking_date,Booking_Type)values(303,106,'2023-02-27','VIP');
+   insert into Booking (Booking_id,Booking_Pass_id,Booking_date,Booking_Type)values(304,107,'2023-05-27','General');
+   insert into Booking(Booking_id,Booking_Pass_id,Booking_date,Booking_Type)values(305,108,'2023-11-27','VIP');
+   insert into Booking (Booking_id,Booking_Pass_id,Booking_date,Booking_Type)values(309,103,'2023-05-27','General');
+   insert into Booking(Booking_id,Booking_Pass_id,Booking_date,Booking_Type)values(315,122,'2023-11-27','VIP');
+
+
+   select * from booking;
+
+  
+  select * from routes;
+  select * from Passengers_Details;
+
+  ALTER TABLE Passengers_Details
+ADD Route_id int;
+
+update  Passengers_Details set Route_id = 201 where P_id = 104;
+update  Passengers_Details set Route_id = 203 where P_id = 105; 
+update  Passengers_Details set Route_id = 204 where P_id = 106; 
+update  Passengers_Details set Route_id = 205 where P_id = 107; 
+update  Passengers_Details set Route_id = 206 where P_id = 108; 
+  
+
+  select * from Routes;
+   select * from Passengers_Details;
+    select * from Booking;
+	 select * from Plane;
+
+
+
+create table Flights_Available
+(
+ Flight_id int primary key ,
+ Start_Location varchar(255) not null,
+ Destination varchar(255),
+ Arrival_Time VARCHAR(255) ,
+ Departure_Time VARCHAR(255),
+ ticket_price int,
+ class varchar(255)
+);
+
+select * from Flights_Available;
+
+insert into Flights_Available( Flight_id , Start_Location , Destination , Arrival_Time ,Departure_Time,ticket_price,class) values(201,'India','U.S','10:00 AM','8:00 PM',50000,'General');
+insert into Flights_Available( Flight_id , Start_Location , Destination , Arrival_Time ,Departure_Time,ticket_price,class) values(202,'India','Kolkata','11:00 AM','5:00 PM',70000,'General');
+insert into Flights_Available( Flight_id , Start_Location , Destination , Arrival_Time ,Departure_Time,ticket_price,class) values(203,'Kolkara','Delhi','12:00 AM','7:00 PM',34000,'General');
+insert into Flights_Available( Flight_id , Start_Location , Destination , Arrival_Time ,Departure_Time,ticket_price,class) values(204,'Delhi','chennai','2:00 PM','8:00 PM',30000,'General');
+insert into Flights_Available( Flight_id , Start_Location , Destination , Arrival_Time ,Departure_Time,ticket_price,class) values(205,'U.S','India','12:00 PM','6:00 PM',57000,'General');
+insert into Flights_Available( Flight_id , Start_Location , Destination , Arrival_Time ,Departure_Time,ticket_price,class) values(206,'Pune','Delhi','4:00 PM','12:00 AM',20000,'General');
+insert into Flights_Available( Flight_id , Start_Location , Destination , Arrival_Time ,Departure_Time,ticket_price,class) values(207,'Kolkara','Delhi','12:00 AM','7:00 PM',34000,'vip');
+insert into Flights_Available( Flight_id , Start_Location , Destination , Arrival_Time ,Departure_Time,ticket_price,class) values(208,'Delhi','chennai','2:00 PM','8:00 PM',35000,'VIP');
+insert into Flights_Available( Flight_id , Start_Location , Destination , Arrival_Time ,Departure_Time,ticket_price,class) values(209,'U.S','India','12:00 PM','6:00 PM',52000,'VIP');
+insert into Flights_Available( Flight_id , Start_Location , Destination , Arrival_Time ,Departure_Time,ticket_price,class) values(216,'Pune','Delhi','4:00 PM','12:00 AM',23000,'VIP');
+
+CREATE PROCEDURE SelectAllFlights
+AS
+begin
+
+   select * from Flights_Available;
+   end
+
+EXEC SelectAllFlights
+
+
+--2]Insert 
+
+alter Procedure insertflight
+(
+  
+ @Flight_id int,
+ @Start_Location varchar(255),
+ @Destination varchar(255),
+ @Arrival_Time VARCHAR(255) ,
+ @Departure_Time VARCHAR(255),
+ @ticket_price int,
+ @class varchar(255)
+
+) as 
+begin 
+insert into [dbo].[Flights_Available]
+(
+  [Flight_id],
+  [Start_Location],
+  [Destination],
+  [Arrival_Time],
+   [Departure_Time],
+    [ticket_price],
+	 [class] 
+ )
+ Values
+	  (
+	  @Flight_id ,
+ @Start_Location ,
+ @Destination ,
+ @Arrival_Time  ,
+ @Departure_Time ,
+ @ticket_price ,
+ @class
+	 )
+end
+
+exec insertflight 300,'delhi','pune','10:00 AM' , '12:00 AM' , 20000 , 'General'
+
+select * from Flights_Available;
+
+
+--3]Delete 
+create procedure DeleteProc
+(
+@id int
+)
+as
+begin
+
+DELETE FROM [dbo].[Flights_Available]
+      WHERE Flight_id=@id;
+end
+
+exec DeleteProc 207
+
+select * from Flights_Available;
+
+--4] Edit/Update 
+
+create proc EditProc
+(
+ @Flight_id int,
+ @Start_Location varchar(255),
+ @Destination varchar(255),
+ @Arrival_Time VARCHAR(255) ,
+ @Departure_Time VARCHAR(255),
+ @ticket_price int,
+ @class varchar(255)
+ )
+as
+begin
+UPDATE [dbo].[Flights_Available]
+SET 
+[Flight_id] = @Flight_id,
+  [Start_Location]=@Start_Location,
+  [Destination]= @Destination,
+  [Arrival_Time]= @Arrival_Time,
+   [Departure_Time]=@Departure_Time,
+    [ticket_price]= @ticket_price,
+	 [class] = @class
+
+
+WHERE Flight_id = @Flight_id;
+End
+
+exec EditProc 200,'Pune','Dubai','5:00 AM','11:00 AM',34000,'General' 
+
+--5] Details
+
+alter procedure DetailsProc
+(@Flight_id int)
+AS
+begin
+
+   select * from Flights_Available where Flight_id = @Flight_id;
+   end
+
+EXEC DetailsProc 206
+
+
+
+------------------------------------------***********************------------------------------
+alter PROCEDURE Book_info
+AS
+begin
+
+   select * from Booking;
+   end
+
+EXEC Book_info
+
+drop table Booking
+
+---2]delete
+create procedure DeleteP
+(
+@id int
+)
+as
+begin
+
+DELETE FROM [dbo].[Booking]
+      WHERE Booking_id=@id;
+end
+
+exec DeleteP 305
+select * from Booking
+
+--3] create
+create Procedure insertbook
+(
+  @Booking_id int,
+ @Booking_Pass_id int,
+ @Booking_date varchar(255),
+ @Booking_Type VARCHAR(255) 
+) 
+as 
+begin 
+insert into [dbo].[Booking]
+(
+  [Booking_id],
+  [Booking_Pass_id],
+  [Booking_date],
+  [Booking_Type]
+ )
+ Values
+	  (
+	  @Booking_id ,
+      @Booking_Pass_id ,
+      @Booking_date,
+      @Booking_Type 
+  )
+end
+
+exec  insertbook 202, 103,'2022-02-14','General'
+select * from Booking;
+
+select * from Routes;
+
+select * from Passengers_Details;
+
+
+
+
+--4] Edit/Update 
+
+create proc EditBook
+(
+ @Booking_id int,
+ @Booking_Pass_id int,
+ @Booking_date varchar(255),
+ @Booking_Type VARCHAR(255) 
+
+ )
+as
+begin
+UPDATE [dbo].[Booking]
+SET 
+[Booking_id] = @Booking_id,
+  [Booking_Pass_id] = @Booking_Pass_id,
+  [Booking_date] = @Booking_date,
+  [Booking_Type] = @Booking_Type
+
+
+
+WHERE Booking_id = @Booking_id;
+End
+
+exec EditBook 301 , 104, '2020-02-13' , 'General'
+
+-------------------------------------------------------------------------------------------------------------------------------------
+alter PROCEDURE Pass_info
+AS
+begin
+
+   select * from Passengers_Details;
+   end
+
+EXEC Pass_info
+
+Select * from routes ;
+
+alter PROCEDURE Route_info
+AS
+begin
+
+   select * from Routes;
+   end
+
+EXEC Route_info
+
+alter table Routes drop column Route_id;
+
+
+create table Planeso
+(
+ Plane_id int  ,
+ Start_Location varchar(255),
+ Destination varchar(255),
+ Arrival_Time VARCHAR(255) ,
+ Departure_Time VARCHAR(255),
+);
+insert into Planeso(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(101,'Delhi','Dubai','10:00 AM', '1:00PM');
+insert into Planeso(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(102,'Pune','Kolkata','10:00 AM', '1:00PM');
+insert into Planeso(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(103,'Delhi','Dubai','11:00 AM', '3:00PM');
+insert into Planeso(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(104,'Pune','Kolkata','10:00 AM', '1:00PM');
+insert into Planeso(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(105,'Delhi','Dubai','1:00 PM', '3:00PM');
+insert into Planeso(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(106,'Delhi','Dubai','12:00 AM', '1:00PM');
+insert into Planeso(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(107,'Pune','Kolkata','12:00 AM', '3:00PM');
+insert into Planeso(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(108,'Delhi','Dubai','10:00 AM', '1:00PM');
+insert into Planeso(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(111,'Nashik','Kolkata','6:00 AM', '1:00PM');
+insert into Planeso(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(125,'Pune','kolkata','12:00 AM', '2:00PM');
+insert into Planeso(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(112,'Aurangabad','Dubai','7:00 AM', '10:00PM');
+insert into Planeso(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(123,'Delhi','Dubai','10:00 AM', '1:00PM');
+insert into Planeso(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(145,'Nashik','Kolkata','1:00 AM', '4:00AM');
+insert into Planeso(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(171,'Delhi','Dubai','10:00 AM', '1:00PM');
+insert into Planeso(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(181,'Aurangabad','Dubai','6:00 AM', '1:00PM');
+
+select * from Planeso;
+
+create procedure Planet
+(
+@Start_Location varchar(255),
+@Destination varchar(255)
+)
+as
+begin
+select * from Planeso
+where Start_Location=@Start_Location and Destination=@Destination;
+end
+
+exec Planet "delhi","dubai"
+
+---------------------------------------------------------***************************************-------------------
+create database DataB;
+create table Planes_Details
+(
+ Plane_id int  ,
+ Start_Location varchar(255),
+ Destination varchar(255),
+ Arrival_Time VARCHAR(255) ,
+ Departure_Time VARCHAR(255),
+
+);
+
+insert into Planesd(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(101,'Delhi','Dubai','10:00 AM', '1:00PM');
+insert into Planesd(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(102,'Pune','Kolkata','10:00 AM', '1:00PM');
+insert into Planesd(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(103,'Delhi','Dubai','11:00 AM', '3:00PM');
+insert into Planesd(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(104,'Pune','Kolkata','10:00 AM', '1:00PM');
+insert into Planesd(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(105,'Delhi','Dubai','1:00 PM', '3:00PM');
+insert into Planesd(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(106,'Delhi','Dubai','12:00 AM', '1:00PM');
+insert into Planesd(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(107,'Pune','Kolkata','12:00 AM', '3:00PM');
+insert into Planesd(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(108,'Delhi','Dubai','10:00 AM', '1:00PM');
+insert into Planesd(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(111,'Nashik','Kolkata','6:00 AM', '1:00PM');
+insert into Planesd(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(125,'Pune','kolkata','12:00 AM', '2:00PM');
+insert into Planesd(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(112,'Aurangabad','Dubai','7:00 AM', '10:00PM');
+insert into Planesd(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(123,'Delhi','Dubai','10:00 AM', '1:00PM');
+insert into Planesd(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(145,'Nashik','Kolkata','1:00 AM', '4:00AM');
+insert into Planesd(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(171,'Delhi','Dubai','10:00 AM', '1:00PM');
+insert into Planesd(Plane_id ,Start_Location, Destination, Arrival_Time , Departure_Time) values(181,'Aurangabad','Dubai','6:00 AM', '1:00PM');
+
+select * from Planesd;
+
+alter table Planesd drop column Class
+
+
+create procedure Plane_Info
+(
+@Start_Location
+@Destination
+)
+as
+begin
+select * from Planesd;
+end
+where 
+
+
+
+create table plane_type
+(
+    class varchar(255),
+   Start_Location varchar(255),
+ Destination varchar(255),
+ Arrival_Time VARCHAR(255) ,
+ Departure_Time VARCHAR(255),
+ ticket_price int,
+);
+
+insert into plane_type( class ,Start_Location,Destination,Arrival_Time,Departure_Time,ticket_price)values ('Passenger','Pune','delhi','10:00AM','2:00 PM',20000);
+insert into plane_type( class ,Start_Location,Destination,Arrival_Time,Departure_Time,ticket_price)values ('Cargo','Delhi','Kolkata','10:00AM','2:00 PM',20700);
+insert into plane_type( class ,Start_Location,Destination,Arrival_Time,Departure_Time,ticket_price)values ('Passenger','Kolkata','delhi','10:00AM','2:00 PM',60000);
+insert into plane_type( class ,Start_Location,Destination,Arrival_Time,Departure_Time,ticket_price)values ('Military','Channai','delhi','10:00AM','2:00 PM',20000);
+insert into plane_type( class ,Start_Location,Destination,Arrival_Time,Departure_Time,ticket_price)values ('Passenger','Bangluru','delhi','10:00AM','2:00 PM',56000);
+
+insert into plane_type( class ,Start_Location,Destination,Arrival_Time,Departure_Time,ticket_price)values ('Passenger','Pune','delhi','11:00AM','2:00 PM',35000);
+insert into plane_type( class ,Start_Location,Destination,Arrival_Time,Departure_Time,ticket_price)values ('Cargo','Mumbai','Kolkata','12:00AM','4:00 PM',25000);
+insert into plane_type( class ,Start_Location,Destination,Arrival_Time,Departure_Time,ticket_price)values ('Military','Mumbai','delhi','10:00AM','7:00 PM',50000);
+
+select * from plane_type;
+
+create procedure P2
+(
+@class varchar(255)
+)
+as
+begin
+select * from plane_type
+where class=@class ;
+end
+
+exec P2 "Passenger"
+
+alter table plane_type Rename class to Ptype;
+
+ALTER TABLE plane_type RENAME class to ptype;
+
+
+create table newtb
+(
+    ptype varchar(255),
+   Start_Location varchar(255),
+ Destination varchar(255),
+ Arrival_Time VARCHAR(255) ,
+ Departure_Time VARCHAR(255),
+ ticket_price int,
+);
+
+insert into newtb( ptype ,Start_Location,Destination,Arrival_Time,Departure_Time,ticket_price)values ('Passenger','Pune','delhi','10:00AM','2:00 PM',20000);
+insert into newtb( ptype ,Start_Location,Destination,Arrival_Time,Departure_Time,ticket_price)values ('Cargo','Delhi','Kolkata','10:00AM','2:00 PM',20700);
+insert into newtb( ptype ,Start_Location,Destination,Arrival_Time,Departure_Time,ticket_price)values ('Passenger','Kolkata','delhi','10:00AM','2:00 PM',60000);
+insert into newtb( ptype ,Start_Location,Destination,Arrival_Time,Departure_Time,ticket_price)values ('Military','Channai','delhi','10:00AM','2:00 PM',20000);
+insert into newtb( ptype ,Start_Location,Destination,Arrival_Time,Departure_Time,ticket_price)values ('Passenger','Bangluru','delhi','10:00AM','2:00 PM',56000);
+insert into newtb( ptype ,Start_Location,Destination,Arrival_Time,Departure_Time,ticket_price)values ('Passenger','dubai','delhi','10:00AM','2:00 PM',60000);
+insert into newtb( ptype ,Start_Location,Destination,Arrival_Time,Departure_Time,ticket_price)values ('Military','Channai','kolkata','10:00AM','2:00 PM',20000);
+insert into newtb( ptype ,Start_Location,Destination,Arrival_Time,Departure_Time,ticket_price)values ('Passenger','Bangluru','delhi','10:00AM','2:00 PM',56000);
+
+
+create procedure proc1
+(
+@ptype varchar(255)
+)
+as
+begin
+select * from newtb
+where ptype=@ptype ;
+end
+
+exec proc1 "military"
