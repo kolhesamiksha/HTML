@@ -1,0 +1,124 @@
+@using System.Data
+@using System.Data.SqlClient
+@model System.Data.DataTable
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Welcome To Chikitsa</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .sidePanel {
+            background-color:#8ef7ef;
+            float: left;
+            width: 15%;
+            height: 100%;
+            position: fixed;
+        }
+
+        .mainPage {
+            margin-left: 20%;
+            margin-top: 50px;
+            float: left;
+            width: 80%;
+        }
+
+        ul {
+            margin-top: 80px;
+            display: block;
+            height: 100%;
+            text-decoration-color: black;
+        }
+
+        li {
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            margin-left: 700PX;
+            width: 50%;
+            color: rgba(74, 42, 88, 0.85);
+            align-content: center;
+        }
+
+        D1 {
+            width: 10%;
+        }
+
+        D2 {
+            width: 10%;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:#73A5C6" id="D1">
+        <h3 style="text-decoration-color:white"> Chikitsa Hospital Management Services </h3>
+    </div>
+
+    <div>
+        <div class="sidePanel">
+           <br><br><h1 style="text-align:center; text-decoration-color:violet">Welcome Admin </h1>
+            <ul>
+                <li>@Html.ActionLink("Dashboard", "Dashboard", "Home")</li>
+                <li>@Html.ActionLink("Doctors & Staff ", "IndexProc", "Employee")</li>
+                <li>@Html.ActionLink("Patients", "IndexProc", "Patient")</li>
+                <li>@Html.ActionLink("Patient Worklist", "PatientWork", "PWorklist")</li>
+                <li>@Html.ActionLink("Departments", "IndexProc", "Department")</li>
+                <li>@Html.ActionLink("Equipments", "IndexProc", "Equipment")</li>
+                <li>@Html.ActionLink("Equipment Worklist", "EquipWork", "EQWork")</li>
+                <li>@Html.ActionLink("Statistics", "IndexProc", "Stat")</li>
+                <li>@Html.ActionLink("Log Out", "LoginPage", "Login")</li>
+            </ul>
+        </div>
+    </div>
+    <div class="mainPage">
+
+        <div>
+            @RenderBody()
+            @*<hr />*@
+            @*<footer>
+                <p>&copy; @DateTime.Now.Year - Chikitsa Private Limited <br> <small>mob no: 1234567899</small></p>
+            </footer>*@
+        </div>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

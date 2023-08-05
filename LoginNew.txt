@@ -1,0 +1,135 @@
+
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Admin</title>
+
+
+
+    <style>
+        .Login1 {
+            border: 1px solid black;
+            background: border-box;
+            margin-bottom: 80px;
+            margin-Top: 70px;
+            margin-right: 50px;
+            margin-left: 50px;
+            padding-bottom: 210px;
+            padding-Left: 30px;
+            padding-right: 30px;
+            padding-top: 80px;
+            background-color: lightblue;
+        }
+
+        #main {
+            align-content: center;
+           
+        }
+      
+
+
+        #i1 {
+            border-radius: 15px;
+            margin-left: 520px;
+            width:70px;
+            height:70px;
+        }
+        #h1 {
+            padding-bottom: 20px;
+            margin-left: 520px;
+        }
+
+
+        #btn {
+            background-color: lightgray;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-spacing: 50px;
+        }
+        #btn1 {
+            background-color: lightgray;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-spacing: 50px;
+        
+        }
+        table{
+            border-spacing:50px;
+        }
+        td{
+            padding:10px
+        }
+
+    </style>
+</head>
+<body id="main">
+    <div class="Login1">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+
+
+            @Html.ValidationSummary(true)
+
+            <div id="icon">
+
+                <img id="i1"  src="../Images/login_icon.jpg" />&nbsp;&nbsp;&nbsp;&nbsp;
+                <h1 id="h1">
+                    Login
+                </h1>
+            </div>
+
+
+
+
+
+
+            <hr>
+           
+
+            <table align="center" >
+
+
+                <tr>
+                    <td>Username</td>&nbsp;&nbsp;
+
+                    <td>@Html.TextBoxFor(model => model.AdminName)<br /></td>
+                    <td>&nbsp;</td>
+                </tr>
+
+                <tr>
+                    <td>Password</td>&nbsp;&nbsp;
+
+                    <td>@Html.PasswordFor(model => model.Password)<br /></td>
+                    <td>&nbsp;</td>
+                </tr>
+
+                <tr>
+
+                    <td><input type="submit" id="btn" value="Login" /></td>&nbsp;&nbsp;&nbsp;
+                    <td><input type="submit" id="btn1" value="Forgot Password?" /></td>
+                </tr>
+            </table>
+            if (ViewBag.Message!= null)
+            {
+                <script type="text/javascript">
+             window.onload= function(){
+             alert("@ViewBag.Message");
+
+    };
+    </script>
+
+            }
+        }
+    </div>
+
+</body>
+
+</html>
